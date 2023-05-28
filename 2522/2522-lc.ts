@@ -15,6 +15,27 @@ The value of a string is its result when interpreted as an integer. For example,
 A substring is a contiguous sequence of characters within a string.
 */
 
-function minimumPartition(s: string, k: number): number {
-	let num;
+export default function minimumPartition(s: string, k: number): number {
+	let subStr = '';
+	const partitions: string[] = [];
+
+	let numPartitions = 1;
+	for (let i = 0; i < s.length; i++) {
+		const char: string = s.charAt(i);
+
+		// if any digit is greater than k, no good partition exists
+		if (parseInt(char) > k) {
+			return -1;
+		}
+		if (parseInt(subStr + char) > k) {
+			numPartitions++;
+			// Copy the substring into the partitions array
+			partitions.push(subStr.slice());
+			subStr = char;
+		} else {
+			subStr = subStr.concat(char);
+		}
+	}
+
+	return numPartitions;
 }

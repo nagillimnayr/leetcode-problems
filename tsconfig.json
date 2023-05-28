@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"module": "es6",
+		"noImplicitAny": true,
+		"removeComments": false,
+		"preserveConstEnums": true,
+		"moduleResolution": "nodenext",
+		"sourceMap": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true
+	}
+}
